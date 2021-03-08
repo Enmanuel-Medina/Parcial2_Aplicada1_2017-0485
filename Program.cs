@@ -1,3 +1,4 @@
+using Parcial2_Aplicada1_2017_0485.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Parcial2_Aplicada1_2017_0485
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+
         }
     }
 }

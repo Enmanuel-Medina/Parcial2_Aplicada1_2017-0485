@@ -79,7 +79,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Consultas
             // 
             this.BuscarButton.Image = global::Parcial2_Aplicada1_2017_0485.Properties.Resources.Buscar;
             this.BuscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BuscarButton.Location = new System.Drawing.Point(675, 49);
+            this.BuscarButton.Location = new System.Drawing.Point(675, 51);
             this.BuscarButton.Name = "BuscarButton";
             this.BuscarButton.Size = new System.Drawing.Size(94, 29);
             this.BuscarButton.TabIndex = 4;
