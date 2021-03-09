@@ -2,6 +2,7 @@
 using Parcial2_Aplicada1_2017_0485.Entidad;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;

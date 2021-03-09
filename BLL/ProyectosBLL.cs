@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,9 +38,12 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
             var contexto = new Contexto();
 
             try
-            {
-                contexto.Proyectos.Add(proyecto);
-                paso = Contexto.SaveChanges() > 0;
+            { 
+                foreach (var item in proyecto.Detalles)
+                {
+                    contexto.Entry(item.tarea).State = EntityState.Modified;
+                }
+                
                        
             }
             catch (Exception)
@@ -60,7 +64,12 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
             try
             {
                 contexto.Database.ExecuteSqlRaw($"Delete from Proyectos_Detalles where proyectoId = {proyecto.ProyectoId} ");
-                paso = Contexto.SaveChanges() > 0;
+                foreach (var item in proyecto.Detalles)
+                {
+                    contexto.Entry(item.tarea).State = EntityState.Added;
+                }
+                contexto.Entry(proyecto).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
 
             }
             catch (Exception)
