@@ -12,16 +12,17 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
 {
    public class ProyectosBLL
     {
-      public static bool Existe (string descripcion)
+        public static bool Existe(string descripcion)
         {
             bool encontrado = false;
             var contexto = new Contexto();
+
             try
             {
+                
                 encontrado = contexto.Proyectos.Any(e => e.Descripcion.ToLower() == descripcion.ToLower());
-
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -30,45 +31,16 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
                 contexto.Dispose();
             }
             return encontrado;
-
         }
-        public static bool Insertar(Proyectos proyecto)
-        {
-            bool paso = false;
-            var contexto = new Contexto();
 
-            try
-            { 
-                foreach (var item in proyecto.Detalles)
-                {
-                    contexto.Entry(item.tarea).State = EntityState.Modified;
-                }
-                
-                       
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return paso;
-        }
-        public static bool Modificar(Proyectos proyecto)
+        private static bool Insertar(Proyectos proyectos)
         {
             bool paso = false;
             var contexto = new Contexto();
 
             try
             {
-                contexto.Database.ExecuteSqlRaw($"Delete from Proyectos_Detalles where proyectoId = {proyecto.ProyectoId} ");
-                foreach (var item in proyecto.Detalles)
-                {
-                    contexto.Entry(item.tarea).State = EntityState.Added;
-                }
-                contexto.Entry(proyecto).State = EntityState.Modified;
+                contexto.Proyectos.Add(proyectos);
                 paso = contexto.SaveChanges() > 0;
 
             }
@@ -80,25 +52,24 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
             {
                 contexto.Dispose();
             }
+
             return paso;
-
         }
-        public static bool Guardar(Proyectos proyecto)
-        {
-            if (!Existe(proyecto.Descripcion))
-                return Insertar(proyecto);
-            else return Modificar(proyecto);
 
-        }
-        public static Proyectos Buscar(int id)
+        private static bool Modificar(Proyectos proyectos)
         {
+            bool paso = false;
             var contexto = new Contexto();
-            var proyectos = new Proyectos();
 
             try
             {
-                proyectos = contexto == contexto.Proyectos.Include(x => Proyectos_Detalles).Where(p => p.ProyectoId == id).SinleOrDefault();
-
+                contexto.Database.ExecuteSqlRaw($"DELETE FROM Proyectos_Detalles WHERE ProyectoId = {proyectos.ProyectoId}");
+                foreach (var anterior in proyectos.Detalles)
+                {
+                    contexto.Entry(anterior).State = EntityState.Added;
+                }
+                contexto.Entry(proyectos).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
             {
@@ -108,8 +79,40 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
             {
                 contexto.Dispose();
             }
-            return proyectos;
+
+            return paso;
         }
+
+        public static bool Guardar(Proyectos proyectos)
+        {
+            if (!Existe(proyectos.Descripcion))
+                return Insertar(proyectos);
+            else
+                return Modificar(proyectos);
+
+        }
+
+        public static Proyectos Buscar(int id)
+        {
+            var contexto = new Contexto();
+            var proyecto = new Proyectos();
+
+            try
+            {
+                proyecto = contexto.Proyectos.Include(x => x.Detalles).Where(p => p.ProyectoId == id).SingleOrDefault();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+
+            return proyecto;
+        }
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -117,11 +120,12 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
 
             try
             {
-                var eliminarP = contexto.Proyectos = contexto.Proyectos.Find(id);
-                contexto.Entry(eliminarP).State = EntityState.Deleted;
+                var eliminarProyecto = contexto.Proyectos.Find(id);
+                contexto.Entry(eliminarProyecto).State = EntityState.Deleted;
+
                 paso = contexto.SaveChanges() > 0;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -129,19 +133,20 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
             {
                 contexto.Dispose();
             }
-            return paso;
 
+            return paso;
         }
-        public static List<Proyectos> GetList(System.Linq.Expressions.Expression<Func<Proyectos, bool>> criterio)
+
+        public static List<Proyectos> GetList(Expression<Func<Proyectos, bool>> criterio)
         {
             List<Proyectos> lista = new List<Proyectos>();
             var contexto = new Contexto();
 
             try
             {
-                lista = contexto.Proyectos.Where(criterio).Tolist();
+                lista = contexto.Proyectos.Where(criterio).ToList();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -149,6 +154,7 @@ namespace Parcial2_Aplicada1_2017_0485.BLL
             {
                 contexto.Dispose();
             }
+
             return lista;
         }
     }

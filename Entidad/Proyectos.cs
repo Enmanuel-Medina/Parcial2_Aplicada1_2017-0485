@@ -19,5 +19,13 @@ namespace Parcial2_Aplicada1_2017_0485.Entidad
         [ForeignKey("ProyectoId")]
         public List<Proyectos_Detalles> Detalles { get; set; }
 
+        public Proyectos()
+        {
+            ProyectoId = 0;
+            Fecha = DateTime.Now;
+            Descripcion = string.Empty;
+            Tiempo = 0;
+            Detalles = new List<Proyectos_Detalles>();
+        }
     }       
 }

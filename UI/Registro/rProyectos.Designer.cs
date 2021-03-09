@@ -40,8 +40,8 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.label1 = new System.Windows.Forms.Label();
             this.DesComboBox = new System.Windows.Forms.ComboBox();
             this.RequerimientoLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ReqTextBox = new System.Windows.Forms.TextBox();
+            this.TiemTextBox = new System.Windows.Forms.TextBox();
             this.TiempoLabel = new System.Windows.Forms.Label();
             this.AgregarButton = new System.Windows.Forms.Button();
             this.rDataGridView = new System.Windows.Forms.DataGridView();
@@ -84,7 +84,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click_1);
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
             // FechaDateTimePicker
             // 
@@ -131,11 +131,13 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             // 
             // DesComboBox
             // 
+            this.DesComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DesComboBox.FormattingEnabled = true;
             this.DesComboBox.Location = new System.Drawing.Point(35, 310);
             this.DesComboBox.Name = "DesComboBox";
             this.DesComboBox.Size = new System.Drawing.Size(151, 28);
             this.DesComboBox.TabIndex = 8;
+            this.DesComboBox.SelectedIndexChanged += new System.EventHandler(this.DesComboBox_SelectedIndexChanged);
             // 
             // RequerimientoLabel
             // 
@@ -146,19 +148,19 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.RequerimientoLabel.TabIndex = 9;
             this.RequerimientoLabel.Text = "Requerimiento";
             // 
-            // textBox1
+            // ReqTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(204, 311);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(322, 27);
-            this.textBox1.TabIndex = 10;
+            this.ReqTextBox.Location = new System.Drawing.Point(204, 311);
+            this.ReqTextBox.Name = "ReqTextBox";
+            this.ReqTextBox.Size = new System.Drawing.Size(322, 27);
+            this.ReqTextBox.TabIndex = 10;
             // 
-            // textBox2
+            // TiemTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(549, 310);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 11;
+            this.TiemTextBox.Location = new System.Drawing.Point(549, 310);
+            this.TiemTextBox.Name = "TiemTextBox";
+            this.TiemTextBox.Size = new System.Drawing.Size(125, 27);
+            this.TiemTextBox.TabIndex = 11;
             // 
             // TiempoLabel
             // 
@@ -179,6 +181,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.AgregarButton.TabIndex = 13;
             this.AgregarButton.Text = "Agregar";
             this.AgregarButton.UseVisualStyleBackColor = true;
+            this.AgregarButton.Click += new System.EventHandler(this.AgregarButton_Click);
             // 
             // rDataGridView
             // 
@@ -201,6 +204,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.RemoverButton.Text = "Remover";
             this.RemoverButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.RemoverButton.UseVisualStyleBackColor = true;
+            this.RemoverButton.Click += new System.EventHandler(this.RemoverButton_Click);
             // 
             // NuevoButton
             // 
@@ -213,6 +217,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.NuevoButton.Text = "Nuevo";
             this.NuevoButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
             // 
             // GuardarButton
             // 
@@ -225,6 +230,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click_1);
             // 
             // EliminarButton
             // 
@@ -237,6 +243,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.EliminarButton.Text = "Eliminar";
             this.EliminarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
             // 
             // TiempoTLabel
             // 
@@ -272,8 +279,8 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.Controls.Add(this.rDataGridView);
             this.Controls.Add(this.AgregarButton);
             this.Controls.Add(this.TiempoLabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TiemTextBox);
+            this.Controls.Add(this.ReqTextBox);
             this.Controls.Add(this.RequerimientoLabel);
             this.Controls.Add(this.DesComboBox);
             this.Controls.Add(this.label1);
@@ -286,6 +293,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.Controls.Add(this.IdLabel);
             this.Name = "rProyectos";
             this.Text = "rProyectos";
+            this.Load += new System.EventHandler(this.rProyectos_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
@@ -306,8 +314,8 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox DesComboBox;
         private System.Windows.Forms.Label RequerimientoLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ReqTextBox;
+        private System.Windows.Forms.TextBox TiemTextBox;
         private System.Windows.Forms.Label TiempoLabel;
         private System.Windows.Forms.Button AgregarButton;
         private System.Windows.Forms.DataGridView rDataGridView;

@@ -18,7 +18,8 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Consultas
         }
 
 
-        private void BuscarButton_Click(object sender, EventArgs e)
+      
+        private void BuscarButton_Click_1(object sender, EventArgs e)
         {
             var lista = new List<Proyectos>();
 
@@ -45,5 +46,6 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Consultas
             cDataGridView.DataSource = null;
             cDataGridView.DataSource = lista;
         }
+
     }
-}
+    }

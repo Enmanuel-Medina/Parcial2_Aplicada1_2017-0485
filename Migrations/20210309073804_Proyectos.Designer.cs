@@ -9,7 +9,7 @@ using Parcial2_Aplicada1_2017_0485.DAL;
 namespace Parcial2_Aplicada1_2017_0485.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20210309021559_Proyectos")]
+    [Migration("20210309073804_Proyectos")]
     partial class Proyectos
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,7 +40,7 @@ namespace Parcial2_Aplicada1_2017_0485.Migrations
 
             modelBuilder.Entity("Parcial2_Aplicada1_2017_0485.Entidad.Proyectos_Detalles", b =>
                 {
-                    b.Property<int>("ProyectoDetalleId")
+                    b.Property<int>("DetalleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -56,11 +56,9 @@ namespace Parcial2_Aplicada1_2017_0485.Migrations
                     b.Property<int>("Tiempo")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ProyectoDetalleId");
+                    b.HasKey("DetalleId");
 
                     b.HasIndex("ProyectoId");
-
-                    b.HasIndex("TareaId");
 
                     b.ToTable("Proyectos_Detalles");
                 });
@@ -74,6 +72,12 @@ namespace Parcial2_Aplicada1_2017_0485.Migrations
                     b.Property<string>("Descripcion")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Requerimiento")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Tiempo")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("TareaId");
 
                     b.ToTable("Tareas");
@@ -82,17 +86,30 @@ namespace Parcial2_Aplicada1_2017_0485.Migrations
                         new
                         {
                             TareaId = 1,
-                            Descripcion = "Analisis"
+                            Descripcion = "Análisis",
+                            Requerimiento = "Analizar la opción de clientes",
+                            Tiempo = 120
                         },
                         new
                         {
                             TareaId = 2,
-                            Descripcion = "Diseño"
+                            Descripcion = "Diseño",
+                            Requerimiento = "Hacer un diseño excelente",
+                            Tiempo = 60
                         },
                         new
                         {
                             TareaId = 3,
-                            Descripcion = "Programacion aplicada"
+                            Descripcion = "Programación",
+                            Requerimiento = "Programar todo el registro",
+                            Tiempo = 240
+                        },
+                        new
+                        {
+                            TareaId = 4,
+                            Descripcion = "Prueba",
+                            Requerimiento = "Probar con mucho cuidado",
+                            Tiempo = 30
                         });
                 });
 
@@ -103,14 +120,6 @@ namespace Parcial2_Aplicada1_2017_0485.Migrations
                         .HasForeignKey("ProyectoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Parcial2_Aplicada1_2017_0485.Entidad.Tareas", "tarea")
-                        .WithMany()
-                        .HasForeignKey("TareaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("tarea");
                 });
 
             modelBuilder.Entity("Parcial2_Aplicada1_2017_0485.Entidad.Proyectos", b =>

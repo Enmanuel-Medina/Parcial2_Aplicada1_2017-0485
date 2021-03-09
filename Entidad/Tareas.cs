@@ -12,6 +12,14 @@ namespace Parcial2_Aplicada1_2017_0485.Entidad
         [Key]
         public int TareaId { get; set; }
         public string Descripcion { get; set; }
-
+        public string Requerimiento { get; set; }
+        public int Tiempo { get; set; }
+        public Tareas()
+        {
+            TareaId = 0;
+            Descripcion = "";
+            Requerimiento = "";
+            Tiempo = 0;
+        }
     }
 }

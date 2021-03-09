@@ -11,22 +11,27 @@ namespace Parcial2_Aplicada1_2017_0485.DAL
     public class Contexto : DbContext
     {
         public DbSet<Tareas> Tareas { get; set; }
+       
         public DbSet<Proyectos> Proyectos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source = Data\Proyectos");
+            optionsBuilder.UseSqlite(@"Data Source = Data\Proyecto.db");
             
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Tareas>().HasData(new Tareas { TareaId = 1, Descripcion = "Analisis" });
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Tareas>().HasData(new Tareas { TareaId = 2, Descripcion = "Diseño" });
-
-            modelBuilder.Entity<Tareas>().HasData(new Tareas { TareaId = 3, Descripcion = "Programacion aplicada" });
-
+            modelBuilder.Entity<Tareas>().HasData(
+              new Tareas() { TareaId = 1, Descripcion = "Análisis", Requerimiento = "Analizar la opción de clientes", Tiempo = 120 },
+              new Tareas() { TareaId = 2, Descripcion = "Diseño", Requerimiento = "Hacer un diseño excelente", Tiempo = 60 },
+              new Tareas() { TareaId = 3, Descripcion = "Programación", Requerimiento = "Programar todo el registro", Tiempo = 240 },
+              new Tareas() { TareaId = 4, Descripcion = "Prueba", Requerimiento = "Probar con mucho cuidado", Tiempo = 30 }
+          );
         }
+
     }
-}
+    }
+
