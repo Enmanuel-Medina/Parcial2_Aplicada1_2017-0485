@@ -33,18 +33,18 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.IdLabel = new System.Windows.Forms.Label();
             this.IdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.FechaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.DescripcionLabel = new System.Windows.Forms.Label();
-            this.DescrpcionTextBox = new System.Windows.Forms.TextBox();
+            this.DescripcionTextBox = new System.Windows.Forms.TextBox();
             this.DetalleLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.DesComboBox = new System.Windows.Forms.ComboBox();
             this.RequerimientoLabel = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.TiempoLabel = new System.Windows.Forms.Label();
             this.AgregarButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.rDataGridView = new System.Windows.Forms.DataGridView();
             this.RemoverButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.TiempoTTextBox = new System.Windows.Forms.TextBox();
             this.MyErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,13 +85,13 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BuscarButton.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // FechaDateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(35, 87);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(150, 27);
-            this.dateTimePicker1.TabIndex = 3;
+            this.FechaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.FechaDateTimePicker.Location = new System.Drawing.Point(35, 87);
+            this.FechaDateTimePicker.Name = "FechaDateTimePicker";
+            this.FechaDateTimePicker.Size = new System.Drawing.Size(150, 27);
+            this.FechaDateTimePicker.TabIndex = 3;
             // 
             // DescripcionLabel
             // 
@@ -102,13 +102,13 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.DescripcionLabel.TabIndex = 4;
             this.DescripcionLabel.Text = "Descripcion";
             // 
-            // DescrpcionTextBox
+            // DescripcionTextBox
             // 
-            this.DescrpcionTextBox.Location = new System.Drawing.Point(35, 150);
-            this.DescrpcionTextBox.Multiline = true;
-            this.DescrpcionTextBox.Name = "DescrpcionTextBox";
-            this.DescrpcionTextBox.Size = new System.Drawing.Size(355, 83);
-            this.DescrpcionTextBox.TabIndex = 5;
+            this.DescripcionTextBox.Location = new System.Drawing.Point(35, 150);
+            this.DescripcionTextBox.Multiline = true;
+            this.DescripcionTextBox.Name = "DescripcionTextBox";
+            this.DescripcionTextBox.Size = new System.Drawing.Size(355, 83);
+            this.DescripcionTextBox.TabIndex = 5;
             // 
             // DetalleLabel
             // 
@@ -128,13 +128,13 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.label1.TabIndex = 7;
             this.label1.Text = "Tipos de tarea";
             // 
-            // comboBox1
+            // DesComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(35, 310);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 28);
-            this.comboBox1.TabIndex = 8;
+            this.DesComboBox.FormattingEnabled = true;
+            this.DesComboBox.Location = new System.Drawing.Point(35, 310);
+            this.DesComboBox.Name = "DesComboBox";
+            this.DesComboBox.Size = new System.Drawing.Size(151, 28);
+            this.DesComboBox.TabIndex = 8;
             // 
             // RequerimientoLabel
             // 
@@ -179,15 +179,15 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.AgregarButton.Text = "Agregar";
             this.AgregarButton.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // rDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(35, 358);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(739, 205);
-            this.dataGridView1.TabIndex = 14;
+            this.rDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rDataGridView.Location = new System.Drawing.Point(35, 359);
+            this.rDataGridView.Name = "rDataGridView";
+            this.rDataGridView.RowHeadersWidth = 51;
+            this.rDataGridView.RowTemplate.Height = 29;
+            this.rDataGridView.Size = new System.Drawing.Size(739, 205);
+            this.rDataGridView.TabIndex = 14;
             // 
             // RemoverButton
             // 
@@ -268,25 +268,25 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.RemoverButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.rDataGridView);
             this.Controls.Add(this.AgregarButton);
             this.Controls.Add(this.TiempoLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.RequerimientoLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.DesComboBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DetalleLabel);
-            this.Controls.Add(this.DescrpcionTextBox);
+            this.Controls.Add(this.DescripcionTextBox);
             this.Controls.Add(this.DescripcionLabel);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.FechaDateTimePicker);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.IdNumericUpDown);
             this.Controls.Add(this.IdLabel);
             this.Name = "rProyectos";
             this.Text = "rProyectos";
             ((System.ComponentModel.ISupportInitialize)(this.IdNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MyErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -298,18 +298,18 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
         private System.Windows.Forms.Label IdLabel;
         private System.Windows.Forms.NumericUpDown IdNumericUpDown;
         private System.Windows.Forms.Button BuscarButton;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker FechaDateTimePicker;
         private System.Windows.Forms.Label DescripcionLabel;
-        private System.Windows.Forms.TextBox DescrpcionTextBox;
+        private System.Windows.Forms.TextBox DescripcionTextBox;
         private System.Windows.Forms.Label DetalleLabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox DesComboBox;
         private System.Windows.Forms.Label RequerimientoLabel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label TiempoLabel;
         private System.Windows.Forms.Button AgregarButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView rDataGridView;
         private System.Windows.Forms.Button RemoverButton;
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.Button GuardarButton;
