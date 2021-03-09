@@ -84,6 +84,7 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
             this.BuscarButton.Text = "Buscar";
             this.BuscarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click_1);
             // 
             // FechaDateTimePicker
             // 

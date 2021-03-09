@@ -98,7 +98,12 @@ namespace Parcial2_Aplicada1_2017_0485.UI.Registro
                 else
                     MessageBox.Show("Proyecto no encontrado en la base de datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        private void BuscarButton_Click_1(object sender, EventArgs e)
+        {
+
         }
+    }
 
 
     }
